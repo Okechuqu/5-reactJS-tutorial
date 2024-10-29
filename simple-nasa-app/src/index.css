@@ -1,0 +1,188 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+
+  /* color-scheme: light dark; */
+  color: white;
+  background-color: #030615;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+#root {
+  min-height: 100vh;
+  display: flex;
+  position: relative;
+}
+
+.imgContainer {
+  display: flex;
+  flex-direction: column;
+  max-height: 100vh;
+}
+
+.bgImage {
+  width: 100vw;
+  height: 100%;
+  flex: 1;
+  object-fit: cover;
+}
+
+footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 1rem;
+}
+
+footer div {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+}
+
+footer button {
+  background: transparent;
+  border: none;
+  outline: none;
+  color: #fff;
+  font-size: 1.3rem;
+  padding: 1rem;
+  transition-duration: 200ms;
+  cursor: pointer;
+}
+footer button:hover {
+  opacity: 0.7;
+}
+footer h2 {
+  font-size: 1.4rem;
+}
+
+footer h1 {
+  font-size: 0.9rem;
+  font-weight: 200px;
+}
+
+.bgGradient {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: linear-gradient(to top, #030615, rgba(255, 255, 255, 0));
+}
+
+.sidebar {
+  position: fixed;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  z-index: 10;
+}
+
+.bgOverlay {
+  position: absolute;
+  inset: 0;
+  background: #030615;
+  opacity: 0.6;
+}
+
+.sidebarContents {
+  z-index: 15;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  padding: 1rem;
+  overflow-y: scroll;
+  height: 100%;
+  width: 90%;
+  max-width: 800px;
+  margin-left: auto;
+  background: #000;
+}
+
+.sidebarContents div {
+  flex: 1;
+}
+
+.sidebarContents h2 {
+  font-size: 1.5rem;
+  font-weight: 200px;
+}
+
+.apodDate {
+  font-size: 1.1rem;
+  font-weight: 200px;
+}
+
+.explainContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.sidebarContents button {
+  background: transparent;
+  border: none;
+  color: #fff;
+  outline: none;
+  margin-right: auto;
+  cursor: pointer;
+  transition-duration: 200ms;
+  padding: 0.5rem 1rem;
+}
+
+.sidebarContents button:hover {
+  opacity: 0.7;
+}
+
+.loadingState {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: 1;
+  opacity: 0.2;
+  font-size: 3rem;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (min-width: 640px) {
+  .sidebar {
+    position: relative;
+    inset: unset;
+    min-width: 30%;
+    max-height: 100vh;
+    box-shadow: 0 0 40px 1px #030615;
+  }
+
+  .sidebarContents {
+    margin: unset;
+    width: 100%;
+  }
+}
